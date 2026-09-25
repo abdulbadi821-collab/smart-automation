@@ -291,9 +291,9 @@ app.post("/api/conversations/:id/messages", async (req, res) => {
         finalAnswer = response.text || "";
       } catch (primaryModelErr) {
         console.warn("Primary model gemini-3.1-flash-lite failed, falling back to gemini-2.5-flash:", primaryModelErr.message);
-        // Fallback to gemini-2.5-flash
+        // Fallback to gemini-3.8-flash
         const fallbackResponse = await ai.models.generateContent({
-          model: "gemini-2.5-flash",
+          model: "gemini-3.8-flash",
           contents: question.trim(),
         });
         finalAnswer = fallbackResponse.text || "";
