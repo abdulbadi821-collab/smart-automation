@@ -136,7 +136,7 @@ app.post("/api/conversations", async (req, res) => {
     res.status(201).json(data);
   } catch (err) {
     console.error("Error creating conversation:", err);
-    res.status(500).json({ error: "Failed to create conversation" });
+    res.status(500).json({ error: "Failed to create conversation", details: err.message });
   }
 });
 
@@ -321,7 +321,7 @@ app.post("/api/conversations/:id/messages", async (req, res) => {
     res.status(201).json(completedAssistantMsg);
   } catch (err) {
     console.error("Error processing message:", err);
-    res.status(500).json({ error: "Failed to process message" });
+    res.status(500).json({ error: "Failed to process message", details: err.message });
   }
 });
 
